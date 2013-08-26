@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$detail_rows.title}</title>
+<link rel="stylesheet" type="text/css" href="css/css.css" />
+<link rel="stylesheet" href="./css/style.css" type="text/css" />
+</head>
+
+<body>
+
+<div class="big">
+{insert name="getHead"}
+  <!--list_page_main-->
+  <div class="subnav">
+    <p><a href="index.php">首页</a>&nbsp;>>&nbsp;
+    {foreach from=$menulist item=val}
+    	{$val.class}&nbsp;>>&nbsp;
+    {/foreach}
+    {$detail_rows.short_title}
+    </p>
+   </div>
+   <div class="list_page_main">
+      <div class="listpage_main_left">
+        <div class="sidebar_top">
+         <h4>{$upartmenuinfoes.class}</h4>
+         <div class="sidebar_center ">
+            <ul>
+            	{foreach from=$submenuinfo item=val}
+            		<li><a href="class.php?id={$val.id}">{$val.class}</a></li>
+            	{/foreach}
+            </ul>
+         </div>
+         <div class="sidebar_bottom"></div>
+       </div>
+      </div>
+      <div class="contentpage_main_right">
+        <h3 style="display:block;width:700px;word-wrap:break-word;word-break:break-all;">{$detail_rows.title}</h3>
+        <div class="contentpage_main_right_center" id="list_content">
+            <div style="display:block; width:700px; line-height:22px;word-wrap:break-word;word-break:break-all; padding-left:10px;"><p>{$detail_rows.content} </p></div>
+            <div class="zuozhe">
+               <span class="zuozhe_left">编辑：{$detail_rows.birth}</span><span>发布时间：{$detail_rows.date}</span>
+            </div>
+        </div>
+        <div class="listpage_main_bottom"></div>
+      </div>
+    <div class="clear"></div> 
+   </div>
+  <!--list_page_main end-->
+  
+<!-- 重设图片的大小 -->
+<script type="text/javascript">
+	var imageList = document.getElementById('list_content').getElementsByTagName('img');
+	for(var i=0 ; i < imageList.length ; i++) {
+		var objImage = new Image();
+		objImage.src = imageList[i].src;
+		if(objImage.width > 650) {
+			var scale = (650.0) / (objImage.width);
+			imageList[i].width = 650;
+			imageList[i].height = (objImage.height) * scale;
+		}
+	}
+</script>
+
+  <div class="clear"></div>  
+ {insert name="getFoot"}
+</div>
+</body>
+</html>

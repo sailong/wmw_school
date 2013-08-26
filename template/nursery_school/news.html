@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$detail_rows.title}</title>
+<link href="css/nursery_css/css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Kindergarten">
+	{insert name="getHead"}
+    <!--Breadcrumb-->
+    <ul class="breadcrumb">
+    	<li>当前位置：</li>
+        <li><a href="#">首页</a></li>
+        <li>>></li>
+        {foreach from=$menulist item=val}
+        <li><a href="class.php?id={$val.id}">{$val.class}</a>>></li>
+        {/foreach}
+        <li><span style="padding:0 10px;">{$detail_rows.short_title}</span></li>
+    </ul>
+        <div class="clear"></div>
+    <!--Breadcrumb end-->
+    
+    <!--main-left-->
+    <div class="sub-list-left">
+    	<h3>{$upartmenuinfoes.class}</h3>	
+        <ul>
+        	{foreach from=$submenuinfo item=val}
+            	<li><a href="class.php?id={$val.id}">{$val.class}</a></li>
+            {/foreach}
+        </ul>
+        <div class="sublist-bottom"></div>
+    </div>
+     <!--main-left-end-->
+     
+     <!--main-right-->
+     <div class="sub-list-right">
+    	<div class="sublist-right-top"></div>
+        <div class="sub-list-right-content" id="list_content">
+        	<div class="content-title">
+                <h4 style="display:block;width:700px;word-wrap:break-word;word-break:break-all;">{$detail_rows.title}</h4>
+                <h5>作者：{$detail_rows.birth}</span>&nbsp;&nbsp;&nbsp;&nbsp;    时间：{$detail_rows.date}</h5>
+            </div>
+        	<div><p style="display:block; width:700px; line-height:22px;word-wrap:break-word;word-break:break-all; padding-left:8px;">
+        	 {$detail_rows.content}
+			</p>
+        </div>
+        </div>
+        <div class="sublist-right-bottom"></div>
+    </div>
+     <!--main-right-end-->
+     <div class="clear"></div>
+     
+    
+</div>
+   <!-- 重设图片的大小 -->
+<script type="text/javascript">
+	var imageList = document.getElementById('list_content').getElementsByTagName('img');
+	for(var i=0 ; i < imageList.length ; i++) {
+		var objImage = new Image();
+		objImage.src = imageList[i].src;
+		if(objImage.width > 650) {
+			var scale = (650.0) / (objImage.width);
+			imageList[i].width = 650;
+			imageList[i].height = (objImage.height) * scale;
+		}
+	}
+</script>
+<!--foot-->
+{insert name="getFoot"}
+<!--foot end-->
+</body>
+</html>

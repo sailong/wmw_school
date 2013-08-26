@@ -1,0 +1,11 @@
+<div class="banner1"></div>
+<!--nav-->
+<ul class="nav">
+	<li><a href="index.php">首页</a></li>
+    {foreach from=$navlist item=nav}
+    <li><a href="class.php?id={$nav.id}">{$nav.class}</a></li>
+    {/foreach}
+    <li><a href="class_list.php" target="_blank">班级网站</a></li>
+</ul>
+<div class="clear"></div>
+<!--nav end-->

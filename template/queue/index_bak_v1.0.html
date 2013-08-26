@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大队网站</title>
+<link rel="stylesheet" href="css/queue_style.css" type="text/css" />
+</head>
+
+<body>
+<div class="big">
+{insert name="getHead"}
+   <div class="main">
+     <div class="main_left">
+     	<!-- 少先队简介 -->
+     	{if !empty($static_list.young_pioneer_list)}
+        <div class="young">
+          <div class="young_top">
+            <h4>{$static_list.young_pioneer_list.class_info.class}</h4><a href="class.php?id={$static_list.young_pioneer_list.class_info.id}" target="_self" class="more"> 更多>> </a>
+          </div>
+          {foreach from=$static_list.young_pioneer_list.datas item=news}
+          <div class="young_center">
+            <a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">
+            	<img src="{$news.pictitle}" width="71" height="97" />
+            </a>
+            <p>{$news.content}</p>
+            <div class="clean"></div>
+          </div>
+          {/foreach}
+          <div class="young_bottom"></div>
+        </div>
+        {/if}
+        <!-- 我们的校长 -->
+        {if !empty($static_list.leader_list)}
+        <div class="young">
+          <div class="young_top">
+            <h4>{$static_list.leader_list.class_info.class}</h4>
+          </div>
+          {foreach from=$static_list.leader_list.datas item=news}
+          <div class="young_center">
+            <a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">
+            	<img src="{$news.pictitle}" width="96" height="93" />
+            </a>
+            <p>
+            	<a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">{$news.title}</a><br />
+            	{$news.content}
+            </p>
+            <div class="clean"></div>
+          </div>
+          {/foreach}
+          <div class="young_bottom"></div>
+        </div>
+        {/if}
+        <!-- 我们的辅导员 -->
+        {if !empty($static_list.coach_members_list)}
+        <div class="young">
+          <div class="young_top">
+            <h4>{$static_list.coach_members_list.class_info.class}</h4>
+          </div>
+          {foreach from=$static_list.coach_members_list.datas item=news}
+          <div class="young_center">
+            <a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">
+            	<img src="{$news.pictitle}" width="96" height="93" />
+            </a>
+            <p>
+            	<a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">{$news.title}</a><br />
+            	{$new.content}
+            </p>          
+            <div class="clean"></div>
+            </div>
+           {/foreach}
+          <div class="young_bottom"></div>
+        </div>
+        {/if}
+        
+        <div class="young">
+          <div class="young_top">
+            <h4>2011主题活动</h4><a href="#" class="more"> 更多>> </a>
+          </div>
+          <div class="young_center_tu">
+            <dl>
+              <dt><a href="http://huodong.wmw.cn/" target="_self"><img src="queue_images/img03.jpg" width="222" height="63" /></a></dt>
+            </dl>
+            <dl>
+              <dt><a href="http://huodong.zscy.cn/huodong/safeout/index.shtml" target="_self"><img src="queue_images/img04.jpg" width="222" height="63" /></a></dt>
+            </dl>
+            <dl>
+              <dt><a href="http://jgs.wmw.cn/Huodong/Zscystory/index" target="_self"><img src="queue_images/img05.jpg" width="222" height="63" /></a></dt>
+            </dl>
+            <dl>
+              <dt><a href="http://jgs.wmw.cn/Huodong/Counterfeit/index" target="_self"><img src="queue_images/img06.jpg" width="222" height="63" /></a></dt>
+            </dl>
+          </div>
+          <div class="young_bottom"></div>
+        </div>
+        
+     </div>
+     
+     <div class="main_right">
+       <div class="main_right_top">
+       	 <!-- 活动播报 -->
+       	 {if !empty($static_list.activity_show_list)}
+         <div class="mian_right_active">
+           <div class="active_top">
+             <h4>活动播报</h4><a href="class.php?id={$static_list.activity_show_list.class_info.id}" class="more"> 更多>> </a>
+           </div>
+           <div class="active_center">
+             <dl>
+               <dt><a href="#"><img src="queue_images/img07.jpg" width="145" height="143" /></a></dt>
+               <dd>纪念建党九十周年</dd>
+             </dl>
+             <ul>
+               {foreach from=$static_list.activity_show_list.datas item=news name=activityloop}
+               <li class="active_sz{$smarty.foreach.activityloop.iteration}">
+                  <a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">{$news.title}[{$news.date}]</a>
+               </li>
+               {/foreach}
+             </ul>
+             <div class="clean"></div>
+           </div>
+           <div class="active_bottom"></div>
+         </div>
+         {/if}
+         
+         <div class="mian_right_team">
+           <div class="team_top">
+             <h4>我们的队室</h4>
+           </div>
+           <div class="team_center">
+             <p>动手布置</p>
+             <h4>我们的队长</h4>
+             <img src="queue_images/img19.jpg" width="143" height="52" />
+           </div>
+           <div class="team_bottom"></div>
+         </div>
+         <div class="clean"></div>
+       </div>
+       <!--madel_garden-->
+       <div class="medal_garden">
+          <div class="medal_garden_top">
+            <h4>争章园地</h4>
+          </div>
+          <div class="medal_garden_center">
+            <dl>
+              <dt><img src="queue_images/img20.jpg" width="419" height="77" /></dt>
+            </dl>
+            <p>
+              <a href="http://www.zscy.cn/login.action" target="_self" class="zhang1">基础章</a>
+              <a href="http://www.zscy.cn/login.action" target="_self" class="zhang2">主题活动章</a>
+              <a href="http://www.zscy.cn/login.action" target="_self" class="zhang3">兴趣章</a>
+              <a href="http://www.zscy.cn/login.action" target="_self" class="zhang4">特色章</a>
+            </p>
+            <div class="clean"></div>
+          </div>
+          <div class="medal_garden_bottom"></div>
+       <div class="clean"></div> 
+       </div>
+       <!--madel_garden end-->
+       <!--medal_speech-->
+      
+       <!--medal_speech end-->
+       <!--medal_speech-->
+       <div class="medal_speech">
+          <div class="medal_speech_top">
+            <p><a href="#" class="speech">辅导经验</a><a href="#">最新博文</a><a href="#">活动案例</a></p>
+          </div>
+          <div class="medal_speech_center">
+          {if !empty($pic_news_content)}
+          	{foreach from=$pic_news_content item=news}
+            <dl>
+              <dt>
+                 <a href="news.php?id={$news.id}" title="{$news.title_all}" target="_self"><img src="{$news.pictitle}" width="75" height="105" /></a>
+              </dt>
+              <dd>{$news.title}</dd>
+            </dl>
+            {/foreach}
+          {/if}
+            <div class="clean"></div>
+          </div>
+          <div class="medal_speech_bottom"></div>
+       <div class="clean"></div> 
+       </div>
+       <!--medal_speech end-->
+       <!--right-->
+<div class="main_right" style="margin-top:10px;" >
+	{if !empty($static_list.news_list)}
+	<div class="list_top">
+    	<h4>文章列表</h4> <a href="class.php?{$static_list.news_list.class_info.id}" class="more"> 更多>> </a>
+    </div>
+    <div class="list_content">
+    	<ul>
+    		{foreach from=$static_list.news_list.datas item=news}
+    		<li>
+				<a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">{$news.title}</a>    		
+    			<span class="list_num">0/{$news.hits}</span>
+    			<span class="list_Author">{$news.birth}</span>
+    		</li>
+       		{/foreach}
+        </ul>
+        <div class="clean"></div>
+    </div>
+    <div class="list_bottom"></div>
+    {/if}
+</div>
+ <!--right end-->
+     </div>
+     <div class="clean"></div>
+   </div>
+   {insert name="getFoot"}
+<div class="clean"></div>
+</div>
+</body>
+</html>

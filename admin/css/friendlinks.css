@@ -1,0 +1,66 @@
+/* CSS Document */
+*{margin:0px; padding:0px;}
+
+body{font-size:12px;}
+
+.big{width:960px; margin:0 auto; margin-top:10px; font-size:12px;}
+a{text-decoration:none;}
+
+
+.title{margin-bottom:10px; color:#fff; font-size:14px;}
+	.title td{padding-left:10px;}
+
+.delet{display:block;width:75px; height:23px; line-height:23px; background:url(../images/w_qx_btn.jpg) no-repeat; border:none;cursor:pointer; text-align:center;float:left;margin-left:10px; color:#333; }	
+.change{display:block;width:75px;height:23px;line-height:23px;background:url(../images/w_tj_btn.jpg) no-repeat;border:none;cursor:pointer;color:#fff;float:left;text-align:center;}	
+
+
+.add_link{margin-top:10px;}
+	.add_link p a{display:block; width:90px; height:24px;line-height:24px; text-align:center;border:1px #CCC solid;text-decoration:none;color:#FF6600;font-weight:bold;}
+	.add_link p a:hover{color:#FF0000;}
+
+
+html,body {height:100%; margin:0px; font-size:12px;}
+.mydiv {
+background-color: #fff;
+border: 5px solid #d1d1d1;
+line-height: 40px;
+font-size: 12px;
+z-index:999;
+width: 300px;
+height: 120px;
+left:50%;
+top:50%;
+margin-left:-150px!important;/*FF IE7 ��ֵΪ������һ�� */
+margin-top:-60px!important;/*FF IE7 ��ֵΪ����ߵ�һ��*/
+margin-top:0px;
+position:fixed!important;/* FF IE7*/
+position:absolute;/*IE6*/
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+padding-top:10px;			
+}
+.bg,.popIframe {
+background-color: #666; display:none;
+width: 100%;
+height: 100%;
+left:0;
+top:0;/*FF IE7*/
+filter:alpha(opacity=50);/*IE*/
+opacity:0.5;/*FF*/
+z-index:1;
+position:fixed!important;/*FF IE7*/
+position:absolute;/*IE6*/
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);
+}
+.popIframe {
+filter:alpha(opacity=0);/*IE*/
+opacity:0;/*FF*/
+}
+
+
+.mydiv p{height:30px; padding-left:10px;}

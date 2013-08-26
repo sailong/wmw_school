@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+body{ background:url(../../images/kindergarten_images/bg.gif) 0 0 repeat;}
+.clear{ clear:both;}
+a{ text-decoration:none;}
+a:hover{ text-decoration:underline;}
+
+
+.index_nav{ background:url(../../images/kindergarten_images/banner.jpg) 0 0 no-repeat; width:960px; height:51px; margin:0 auto; padding-top:303px;}
+.index_nav a{ color:#fff599; font:17px "黑体"; margin:0 10px; line-height:38px;}
+.index_nav a.current{ background:url(../../images/kindergarten_images/bg01.gif) 0 0 no-repeat; display:inline-block; width:112px; height:38px; color:#326600; text-align:center;}
+.index_nav a:hover{color:white}
+
+.index_main{ width:960px; margin:0 auto; background-color:white;}
+
+/*图片轮换*/
+.tplh{ background:url(../../images/kindergarten_images/bg_photo.gif) 0 0 no-repeat; width:311px; height:185px; padding:245px 18px 22px 32px; float:left;} 
+
+/*新闻等*/
+.new_o{ background:url(../../images/kindergarten_images/bg_new.gif) 0 0 no-repeat; width:599px; height:447px; float:left;}
+
+	/*校园公告*/
+	.xygg { margin-top:106px; margin-left:190px;  width:340px; height:134px; overflow:hidden; padding-left:15px;}
+	.xygg ul a{ font:13px "宋体"; color:#777777; line-height:23px;}
+
+	/*校园新闻*/
+	.xyxw{  margin:40px 190px 10px 40px ;overflow:hidden; height:148px; padding-left:15px;}
+	.xyxw ul li a{ font:13px "宋体"; color:#777777; line-height:24px;}
+
+/*left*/
+.index_left{ width:361px; float:left;background-color:white;}
+
+/*左侧小栏目*/
+.left_div{ width:361px; float:left; background-color:#FFF;}
+.left_div table{  font:13px "宋体"; color:#888; line-height:24px; width:320px; margin:0 auto;}
+.left_div table td{ border-bottom:dashed #dadada 1px;}
+.left_div table td a{ background:url(../../images/kindergarten_images/dian.gif) 0 50% no-repeat;color:#888;  padding-left:8px; }
+.left_title{ background:url(../../images/kindergarten_images/bg_line.gif) 0 0 no-repeat; width:361px; height:40px;}
+.left_title span{ margin-left:32px; display:inline-block; padding-top:18px; font:16px "黑体";  color:#4e9530; float:left; width:100px;}
+.left_title .more{ width:55px; height:20px; display:inline-block; margin-left:142px; float:left; margin-top:12px;}
+
+
+.index_right{ width:599px; float:left; background-color:white;}
+/*右侧小栏目*/
+.right_div{ }
+.right_div table{width:100%; font:13px "宋体"; color:#888; line-height:24px; width:560px ; margin:0 auto;}
+.right_div table td{ border-bottom:dashed #dadada 1px;}
+.right_div table td a{ background:url(../../images/kindergarten_images/dian.gif) 0 50% no-repeat;color:#888;padding-left:8px; }
+td.time { width:85px; text-align:center; background:none;vertical-align:text-top;}
+.right_title{ background:url(../../images/kindergarten_images/bg_line2.gif) 0 0 no-repeat; width:599px; height:40px;}
+.right_title span{ margin-left:32px; display:inline-block; padding-top:18px; font:16px "黑体";  color:#d69e05; float:left; width:100px;}
+.right_title .more{ width:55px; height:20px; display:inline-block; margin-left:380px; float:left; margin-top:12px;}
+
+
+/*滚动图片及footer*/
+.index_foot{ background:url(../../images/kindergarten_images/bg_foot.gif) white 0 0 no-repeat; width:960px; height:394px; padding-top:65px; }
+
+.gdtp{ margin:0px 56px 0 190px; height:120px; background-color:#99FF99; }
+
+.bq{ font:14px "宋体"; color:#22510e; margin-top:240px; margin-left:170px;}
+
+.bq{ font:14px "宋体"; color:#22510e; margin-top:240px; margin-left:170px;}
+
+
+/*foot*/
+.footer{ background:url(../../images/kindergarten_images/foot.gif) 0 0 no-repeat; width:960px; height:232px; padding-top:190px; margin:0 auto;}
+.banquan{font:14px "宋体"; color:#22510e; margin-left:170px;}

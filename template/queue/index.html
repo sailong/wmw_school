@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大队网站</title>
+<link rel="stylesheet" href="css/queue_style.css" type="text/css" />
+<script type="text/javascript" language="javascript" src="./admin/js/tupian.js"></script>
+<script type=text/javascript src="js/carousel-chart.js"></script>
+<script type=text/javascript src="js/jquery-1.4.2.min.js"></script>
+<link href="css/queue_css/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="big">
+{insert name="getHead"}
+ 
+    <!--  
+              滚动图片
+        <div class="medal_speech">
+          <div class="medal_speech_top">
+            <p><a href="#" class="speech">辅导经验</a><a href="#">最新博文</a><a href="#">活动案例</a></p>
+          </div>
+          <div id="picnewslist" class="medal_speech_center">
+          {if !empty($pic_news_content)}
+          	{foreach from=$pic_news_content item=news}
+               <a href="news.php?id={$news.id}" title="{$news.title_all}" target="_self"><img src="{$news.pictitle}" width="75" height="105" /></a>
+            {/foreach}
+          {/if}
+          </div>
+          <script>new Marquee("picnewslist","left",5,628,100,60,0,0,120)</script> 
+            <div class="clean"></div>
+          </div>
+          <div class="medal_speech_bottom"></div>
+       <div class="clean"></div> 
+       </div>
+       
+        <div class="main_right" style="margin-top:10px;" >
+	{if !empty($static_list.news_list)}
+	<div class="list_top">
+    	<h4>文章列表</h4> <a href="class.php?{$static_list.news_list.class_info.id}" class="more"> 更多>> </a>
+    </div>
+	<div class="nav_right" ></div>   {/if}
+   </div>
+      -->
+
+<div class="clear"></div>
+<!--第一横行-->
+	<!--学校少先队简介-->
+{if !empty($static_list.young_pioneer_list)}
+<div class="div01">
+	<h3>{$static_list.young_pioneer_list.class_info.class}</h3>
+    <div class="clear"></div>
+    <table cellpadding="0" cellspacing="0">
+    	{foreach from=$static_list.young_pioneer_list.datas item=news}
+    	<tr>
+        	<td>
+        		<a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">
+        			<img width="110px" height="140px" {if !empty($news.pictitle)}src="{$news.pictitle}"{else}src='images/queue_images/img01.jpg'{/if} onerror="this.src='images/queue_images/img01.jpg'; this.onerror=null;" />
+        		</a>
+        	</td>
+            <td>{$news.content}</td>
+        </tr>
+        {/foreach}
+        <tr>
+        	<td colspan="2"><a href="class.php?id={$static_list.young_pioneer_list.class_info.id}" target="_blank" class="btn_more">更多动态</a></td>
+        </tr>
+	</table>
+</div>
+{/if}
+	<!--活动播报-->
+<div class="div02">
+	<h3>活动播报</h3>
+    <table cellpadding="0" cellspacing="0">
+    	<tr>
+	    	<td colspan="2">
+	    		<a href="class.php?id={$static_list.activity_show_list.class_info.id}" class="btn_more">更多动态</a>
+	    	</td>
+    	</tr>
+        <tr>
+        	<td>
+        		<img src="images/queue_images/img02.jpg" />
+        	</td>
+            <td>
+            	<ul>
+            		{foreach from=$static_list.activity_show_list.datas item=news}
+            		<li>
+            			<a class="link_style" href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">{$news.title}</a>
+            		</li>
+            		{/foreach}
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+	<!--我们的队室-->
+<div class="div03">
+	<h3>我们的队室</h3>
+    <div class="clear"></div>
+    <p><span class="linshi">（学校各自布置）</span></p>
+    <div class="div03_nb">
+    	<h4>
+	    	<span>我们的队长</span>
+	    	<a href="#" class="btn_ml"></a>
+    	</h4>
+        <div class="clear"></div>
+        <img src="images/queue_images/img03.jpg" />    
+    </div>
+    
+</div>
+<div class="clear"></div>
+
+<img src="images/queue_images/img12.jpg" />
+<!--left-->
+<div id="left">
+	<!--校长及辅导员-->
+
+	
+    <div class="vip_list">
+    <!-- 位置有限，首页每组只取第一个成员 -->
+    	<ul>
+   			{foreach from=$static_list.leader_list.datas item=news }
+      		<li>
+	   		     <!-- <a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}"> -->
+	   		     <a href="class.php?id={$news.uid}" target="_blank" title="{$news.title_all}"> 
+	   				<img width="145" height="144" {if !empty($news.pictitle)}src="{$news.pictitle}"{else}src="images/queue_images/img02.jpg"{/if} onerror="this.src='images/queue_images/img02.jpg'; this.onerror=null;" />
+	   			</a>
+      		</li>
+          	<li>&nbsp;&nbsp;姓名:{$news.title_all}</li>
+          	   {break}<!-- 只显示首位校长 -->
+                     	
+           	{/foreach}
+          	
+           	{foreach from=$static_list.coach_members_list.datas item=news} 
+            <li>
+	            <!-- <a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}"> -->
+	            <a href="class.php?id={$news.uid}" target="_blank" title="{$news.title_all}">
+	            	<img width="145" height="144" {if !empty($news.pictitle)}src="{$news.pictitle}"{else}src="images/queue_images/img02.jpg"{/if} onerror="this.src='images/queue_images/img02.jpg'; this.onerror=null;" />
+	            </a>
+            </li>
+            <li>&nbsp;&nbsp;姓名:{$news.title_all}</li>
+             {break}<!-- 只显示首位辅导员 -->
+                                    
+            {/foreach}
+       
+        </ul>
+        
+         
+    </div>
+    <!--中队社区-->
+    <div class="zdsq_top"></div>
+    <ul class="zdsq_content">
+        <li>一年级</li>
+        <li>二年级</li>
+        <li>三年级</li>
+        <li>四年级</li>
+        <li>五年级</li>
+        <li>六年级</li>
+        <li>七年级</li>
+        <li>八年纪</li>
+    </ul>   
+    <div class="zdsq_bottom"></div>
+    
+    <!--主题活动-->
+    <div class="zthd_top"> <a href="http://huodong.wmw.cn/" class="btn_more" target="__blank">更多动态</a></div>
+    <ul class="zthd_content">
+    	<li><a href="#"><img src="images/queue_images/img04.jpg" /></a></li>
+        <li><a href="#"><img src="images/queue_images/img10.jpg" /></a></li>
+        <li><a href="http://huodong.wmw.cn/" target="_blank"><img src="images/queue_images/img05.jpg" /></a></li>
+        <li><a href="http://huodong.zscy.cn/huodong/safeout/index.shtml" target="_blank"><img src="images/queue_images/img06.jpg" /></a></li>
+        <li><a href="http://jgs.wmw.cn/Huodong/Zscystory/index" target="_blank"><img src="images/queue_images/img07.jpg" /></a></li>
+        <li><a href="http://jgs.wmw.cn/Huodong/Counterfeit/index" target="_blank"><img src="images/queue_images/img08.jpg" /></a></li>
+    </ul>
+    <div class="zthd_bottom"></div>
+    
+    <!--争章排行-->
+    <div class="zzph_top"></div>
+    <div class="zzph_content">
+    	<ul >
+        	<li><span>01.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>02.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>03.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>04.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>05.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>06.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>07.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>08.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>09.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+            <li><span>10.王晓明</span> <span class="jz"> 奖 章：999枚</span></li>
+        </ul>
+        <img src="images/queue_images/bg14.gif"  style="float:left;"/>
+        <table cellpadding="0" cellspacing="0" style="float:left;">
+        	<tr>
+            	<th rowspan="3"> <img src="images/queue_images/img11.jpg" /></th>
+                <td>今日之星<img src="images/queue_images/icon03.jpg" /></td>
+            </tr>
+            <tr><td><span>姓名：</span>王晓明</td></tr>
+            <tr><td><span>ID：</span> 2020002</td></tr>
+        </table>
+    	
+    </div>
+    <div class="zzph_bottom"></div>
+</div>
+
+<!--right-->
+<div id="right">
+	<!--争章园地-->
+	<div class="zzyd_top"></div>
+    <div class="zzyd_content">
+    	<table cellpadding="0" cellspacing="0">
+        	<tr>
+            	<th> <a href="http://www.zscy.cn" target="_blank"> <img src="images/queue_images/img14.jpg" /></a></th>
+                <th> <a href="http://www.zscy.cn" target="_blank"> <img src="images/queue_images/img15.jpg" /></a></th>
+                <th> <a href="http://www.zscy.cn" target="_blank"> <img src="images/queue_images/img16.jpg" /></a></th>
+                <th> <a href="http://www.zscy.cn" target="_blank"> <img src="images/queue_images/img17.jpg" /></a></th>
+            </tr>
+            <tr>
+            	<td>基础章</td>
+                <td>主题章</td>
+                <td>兴趣章</td>
+                <td>特色章</td>
+            </tr>
+        </table>
+    </div>
+    <div class="zzyd_bottom"></div>
+    
+    <!--争章实践-->
+    <div class="zzsj_bg">
+    	<div class="zzsj">
+        	<h4> <span> 争章小微博</span> <img src="images/queue_images/icon04.gif" /></h4>
+            <table border="0" cellpadding="0" cellspacing="0" class="zzsj_table" >
+            	<tr>
+                	<th colspan="3">好玩的游戏</td>
+                    <th colspan="3">好玩的游戏</td>
+                </tr>
+            	<tr>
+            	  <td rowspan="2"><img src="images/queue_images/photo01.jpg"  class="stu_photo" /></td>
+          	      <td colspan="2">放暑假了，我终于可以玩游戏了</td>
+          	      <td rowspan="2"><img src="images/queue_images/photo01.jpg"  class="stu_photo" /></td>
+          	      <td colspan="2">放暑假了，我终于可以玩游戏了</td>
+       	      </tr>
+              <tr>
+            	  <td>小辉辉 发表于2小时前</td>
+          	      <td>0人推荐</td>
+          	      <td class="author">小辉辉 发表于2小时前</td>
+          	      <td class="tj_font">0人推荐</td>
+           	  </tr>
+              <tr>
+                	<th colspan="3">好玩的游戏</td>
+                    <th colspan="3">好玩的游戏</td>
+                </tr>
+            	<tr>
+            	  <td rowspan="2"><img src="images/queue_images/photo01.jpg"  class="stu_photo" /></td>
+          	      <td colspan="2">放暑假了，我终于可以玩游戏了</td>
+          	      <td rowspan="2"><img src="images/queue_images/photo01.jpg"  class="stu_photo" /></td>
+          	      <td colspan="2">放暑假了，我终于可以玩游戏了</td>
+       	      </tr>
+              <tr>
+            	  <td>小辉辉 发表于2小时前</td>
+          	      <td>0人推荐</td>
+          	      <td class="author">小辉辉 发表于2小时前</td>
+          	      <td class="tj_font">0人推荐</td>
+           	  </tr>
+              <tr>
+                	<th colspan="3">好玩的游戏</td>
+                    <th colspan="3">好玩的游戏</td>
+                </tr>
+            	<tr>
+            	  <td rowspan="2"><img src="images/queue_images/photo01.jpg"  class="stu_photo" /></td>
+          	      <td colspan="2">放暑假了，我终于可以玩游戏了</td>
+          	      <td rowspan="2"><img src="images/queue_images/photo01.jpg"  class="stu_photo" /></td>
+          	      <td colspan="2">放暑假了，我终于可以玩游戏了</td>
+       	      </tr>
+              <tr>
+            	  <td>小辉辉 发表于2小时前</td>
+          	      <td>0人推荐</td>
+          	      <td class="author">小辉辉 发表于2小时前</td>
+          	      <td class="tj_font">0人推荐</td>
+           	  </tr>
+            </table>
+         </div>
+         <div class="zzsj_bottom"> <a href="#" class="btn_more2">更多动态</a> </div>
+    </div>
+    
+     <!--辅导员平台-->
+    <div class="zzsj_bg3">
+    	<div class="fdy">
+        	<h4><a href="#">争章辅导</a> <a href="#">争章交流</a> <a href="#">活动案例</a></h4>
+            <table border="0" cellpadding="0" cellspacing="0" class="fdy_table" >
+            	<tr>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                    <th>
+                        <table>
+                        	<tr><td><img src="images/queue_images/photo02.jpg" /></td></tr>
+                        	<tr><td>高丹</td></tr>
+                        </table>
+                    </th>
+                </tr>
+                
+            </table>
+         </div>
+         <div class="zzsj_bottom3"> <a href="#" class="btn_more2">更多动态</a> </div>
+    </div>
+    <div class="clear"> </div>
+     <!--家长驿站-->
+    <div class="zzsj_bg2">
+    	<div class="jzyz">
+        	<h4><a href="#">志愿辅导</a> <a href="#">亲子实践</a> <a href="#">交流工坊</a></h4>
+        	<table>
+        	{foreach from=$pic_news_content item=news}
+        		<tr>
+	        		<th><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}" class="title_width">{$news.title}</a></th>
+	        		<td><a href="#" class="author">小叮当小叮当</a></td>
+	        		<td class="w_time">{$news.date}</td>
+        		</tr>
+        		
+        	{/foreach}
+        	</table>
+            
+         </div>
+         <div class="zzsj_bottom2"> <a href="#" class="btn_more2">更多动态</a> </div>
+    </div>
+    
+</div>
+<div class="clear"></div>
+
+<!--foot-->
+	<!--友情链接-->
+<div class="yqlj">
+	<table cellpadding="0" cellspacing="0">
+    	<tr style="background:url(images/queue_images/bg27.gif) 0 bottom no-repeat;">
+        	<th>友情链接</th>
+            <td>
+            {foreach from=$friendlinks item=link}
+            <a href="{$link.link}">{$link.name}</a>
+            {/foreach}        
+            </td> 
+        </tr>
+        <!--  链接背景图
+        <tr>
+        	<th>&nbsp;</th>
+        	<td style="padding-top:15px;">
+        	<a href="#"><img src="images/queue_images/img18.gif" /></a>
+	        	<a href="#"><img src="images/queue_images/img18.gif" /></a>
+	        	<a href="#"><img src="images/queue_images/img18.gif" /></a>
+	        	<a href="#"><img src="images/queue_images/img18.gif" /></a>
+	        	<a href="#"><img src="images/queue_images/img18.gif" /></a>
+	        	<a href="#"><img src="images/queue_images/img18.gif" /></a>
+	        	<a href="#"><img src="images/queue_images/img18.gif" /></a>
+	        	<a href="#"><img src="images/queue_images/img18.gif" /></a>
+        	</td>
+        </tr>
+         -->
+    </table>
+</div>
+
+<div class="clear"></div>
+
+	<!--版权-->
+<div class="bq">
+	<ul >
+    	<li><a href="#">中少雏鹰争章网</a></li> 
+        <li><a href="#">联系我们</a></li> 
+        <li><a href="#">JOB</a></li>
+        <li><a href="#">背景介绍</a></li>
+        <li><a href="#">价值观念宣传</a></li>
+        <li><a href="#">版权相关信息</a></li>
+	</ul>
+</div>
+
+</body>
+</html>

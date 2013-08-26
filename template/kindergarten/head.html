@@ -1,0 +1,8 @@
+
+<div class="index_nav">
+	<a href="#">&nbsp;&nbsp;</a>
+	<a  href="index.php" class="">首页</a>
+    {foreach from=$navlist item=nav}
+    <a  href="class.php?id={$nav.id}" id="nav_{$nav.id}">{$nav.class}</a>
+    {/foreach}
+</div>

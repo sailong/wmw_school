@@ -1,0 +1,12 @@
+
+<div class="banner">
+	<img src="images/banner.jpg" />
+</div>
+<!--banner end-->
+<!--nav-->
+<div class="nav"><a href="index.php">首页</a>
+{foreach from=$navlist item=nav}
+	<a style=" background:url(images/nav_a_xst.jpg) no-repeat left center;" href="class.php?id={$nav.id}">{$nav.class}</a>
+{/foreach}
+<a  style=" background:url(images/nav_a_xst.jpg) no-repeat left center;" href="class_list.php" target="_blank;">班级网站</a>
+</div>

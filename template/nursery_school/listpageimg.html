@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>校园风采</title>
+<link href="css/nursery_css/css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="Kindergarten">
+	{insert name="getHead"}
+    <!--Breadcrumb-->
+    <ul class="breadcrumb">
+    	<li>当前位置：</li>
+        <li><a href="index.php">首页</a></li>
+        <li>></li>
+        {foreach from=$menulist item=val}
+        <li>>{$val.class}&nbsp;>>&nbsp;</li>
+        {/foreach}
+    </ul>
+        <div class="clear"></div>
+    <!--Breadcrumb end-->
+    
+    <!--main-left-->
+    <div class="sub-list-left">
+    	<h3>{$menulist.0.class}</h3>	
+        <ul>
+        	{if !empty($class_treelist)}
+             {foreach from=$class_treelist item=tree}
+            	<li><a href="class.php?id={$tree.id_all}">{$tree.class}</a></li>
+                {if !empty($tree.sub_list)}
+	                {foreach from=$tree.sub_list item=val}
+	                	<li style="margin-left:20px;"><a href="class.php?id={$val.id_all}">{$val.class}</a></li>
+	                {/foreach}
+                {/if}
+               {/foreach}
+           {else}
+            	<li>默认分类</li>
+           {/if}
+        </ul>
+        <div class="sublist-bottom"></div>
+    </div>
+     <!--main-left-end-->
+     
+     <!--main-right-->
+     <div class="sub-list-right">
+    	<div class="sublist-right-top"></div>
+        <div class="sub-list-right-content">
+        	<h3><span>{$current_class.class}</span> </h3>
+            <div class="imagelist">
+                {foreach from=$news_arr item=news}
+                    <dl>
+                      <dt><a href="news.php?id={$news.id}"><img src="{$news.pictitle}" /></a></dt>
+                      <dd>{$news.title}</dd>
+                    </dl>
+                    {/foreach}
+                <div class="clear"></div>
+           	</div>
+        </div>
+        <div class="sublist-right-bottom"></div>
+    </div>
+     <!--main-right-end-->
+     <div class="clear"></div>
+    
+    
+    
+    
+    
+</div>
+<!--foot-->
+{insert name="getFoot"}
+<!--foot end-->
+</body>
+</html>

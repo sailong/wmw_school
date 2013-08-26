@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$system['name']}</title>
+<link rel="stylesheet" href="css/middle_css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/pic_css.css" type="text/css" />
+<script type="text/javascript" language="javascript" src="./admin/js/tupian.js"></script>
+<script type=text/javascript src="js/carousel-chart.js"></script>
+<script type=text/javascript src="js/jquery-1.4.2.min.js"></script>
+</head>
+
+<body>
+<div class="big">
+{insert name="getHead"}
+ <!--nav end-->
+ <!--main-->
+   <div class="main">
+    <!--main_left-->
+      <div class="main_left">
+      <!-- 公告 -->
+      {if !empty($static_list.notice_list)}
+        <div class="newest">
+          <div class="newest_top">
+            <h4>{$static_list.notice_list.class_info.class}</h4><span><a href="class.php?id=1">More+</a></span>
+          </div>
+          <div class="newest_center">
+            <ul>
+            {foreach from=$static_list.notice_list.datas item=news}
+              <li><a href="news.php?id={$news.id}" title="{$news.title_all}">{$news.title}</a></li>
+            {/foreach}
+            </ul>
+          </div>
+          <div class="newest_bottom"></div>
+        </div>
+      {/if}
+      <!-- 领导班子 -->
+      {if !empty($static_list.leader_list)}
+        <div class="leadership">
+          <div class="leadership_top">
+            <h4>{$static_list.leader_list.class_info.class}</h4><span><a href="class.php?id={$static_list.leader_list.class_info.id}" target="_self" title="更多">More+</a></span>
+          </div>
+          <div class="leadership_center" style="overflow:hidden;">
+          {foreach from=$static_list.leader_list.datas item=news}
+            <dl>
+              <dt><a href="news.php?id={$news.id}" title="{$news.title}" target="_self"><img src="{$news.pictitle}" width="200" height="140" /></a></dt>              
+            </dl>
+            <p style="line-height: 22px; padding-top: 8px; padding-right: 10px; padding-bottom: 0px; padding-left: 10px; word-break: break-all; word-wrap: break-word;"><a href="news.php?id={$news.id}" title="{$news.title}" target="_self">{$news.content}</a></p>
+          {/foreach}
+          </div>
+          <div class="newest_bottom"></div>
+        </div>
+      {/if}
+        <div class="login">
+          <div class="login_top">
+            <h4>用户登录</h4>
+          </div>
+          <div class="login_center">
+            <img src="images/middle_images/middle_school.jpg" />
+           <p><a href="http://home.wmw.cn" style="border:none;" target="_blank"><img src="images/enter.jpg" /></a></p>
+           <div class="clear"></div> 
+          </div>
+          <div class="newest_bottom"></div>
+        </div>
+        {if !empty($friendlinks)}
+        <div class="link">
+          <div class="link_top">
+            <h4>友情链接</h4>
+          </div>
+          <div class="link_center">
+            <ul>
+            {foreach from=$friendlinks item=link}
+              <li><a href="{$link.link}" target="_blank">{$link.name}</a></li>
+            {/foreach}
+            </ul>
+          </div>
+          <div class="newest_bottom"></div>
+        </div>
+        {/if}
+      </div>
+    <!--main_left end-->
+    <!--main_right-->
+      <div class="main_right">
+      <!--main_right_yi-->
+        <div class="main_right_yi">
+          <div class="ad_img">
+            <div class="ad_img_top"></div>
+            <div class="ad_img_center">
+              <!-- 幻灯片 -->
+				<div style="OVERFLOW: visible" class="center_class">
+					<div class="cc">
+					  <div id="banner" class="banner">
+						<div id="banner_bg"></div>
+						<ul>
+						  <li class="on">1 </li>
+						  <li>2 </li>
+						  <li>3 </li>
+						  <li>4 </li>
+						  <li>5 </li>
+						  <li>6 </li>
+						</ul>
+						<div id="banner_list" class="banner_list">
+						{if !empty($static_list.hdimg_list)}
+					        {foreach from=$static_list.hdimg_list.datas item=val}
+					           <a href="news.php?id={$val.id}" title="{$val.title}"><img src="{$val.pictitle}"/></a>
+					        {/foreach}
+	         			{/if}
+					    </div>
+					  </div>
+					</div>
+				</div>
+				<script language="javascript">show('banner');</script>
+            </div>
+            <div class="ad_img_bottom"></div>
+          </div>
+          <div class="news">
+            <div class="news_top">
+              <h4>校园新闻</h4><span><a href="#">More+</a></span>
+            </div>
+            <div class="news_center">
+              <ul>
+              {foreach from=$zj_news item=news}
+              <li><a href="news.php?id={$news.id}" title="{$news.title_all}">{$news.title}</a></li>
+              {/foreach}
+            </ul>
+            </div>
+            <div class="newest_bottom"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      <!--main_right_yi end-->
+      
+      <!--column-->
+      <div class="column">
+      	<!-- 德育天地 -->
+        <div class="column_left">
+        {if !empty($static_list.dy_list)} 
+          <div class="column_left_top">
+            <h4>{$static_list.dy_list.class_info.class}</h4><span><a href="class.php?id={$static_list.dy_list.class_info.id}" target="_blank"></a></span>
+          </div>
+          <div class="column_left_center">
+            <ul>
+            {foreach from=$static_list.dy_list.datas item=news}
+              <li><a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">{$news.title}</a></li>
+            {/foreach}
+            </ul>
+          </div>
+          <div class="column_left_bottom"></div>
+        {/if}
+        </div>
+        
+        <!-- 党旗飘飘 -->
+        <div class="column_right">
+        {if !empty($static_list.dq_list)}
+          <div class="column_right_top">
+            <h4>{$static_list.dq_list.class_info.class}</h4><span><a href="class.php?id={$static_list.dq_list.class_info.id}" target="_blank"></a></span>
+          </div>
+          <div class="column_left_center">
+            <ul>
+            {foreach from=$static_list.dq_list.datas item=news}
+              <li><a href="news.php?id={$news.id}" target="_self" title="{$news.title_all}">{$news.title}</a></li>
+            {/foreach} 
+            </ul>
+          </div>
+          <div class="column_left_bottom"></div>
+        {/if}
+        </div>
+        <div class="clear"></div>
+      </div> 
+      <!--column end-->
+      
+      <!--campus_style校园风采-->
+      <div class="campus_style">
+      <!-- 校园风采，图文列表 -->
+      <div id="picnewslist">
+         {if !empty($pic_news_content)}
+	         {foreach from=$pic_news_content item=val}
+         			<a href="news.php?id={$val.id}" title="{$val.title}" target="_blank"><img src="{$val.pictitle}" width="127" height="85"/></a>
+	         {/foreach}
+         {/if}
+      </div>
+           <script>new Marquee("picnewslist","left",5,680,100,60,0,0,120)</script> 
+      </div> 
+      <!--campus_style end-->
+      
+      <!--column-->
+      <div class="column">
+	      <!-- 教研科研 -->
+	      <div class="column_left">
+	        {if !empty($static_list.educate_list)}
+	          <div class="column_left_top">
+	            <h4>{$static_list.educate_list.class_info.class}</h4><span><a href="class.php?id={$static_list.educate_list.class_info.id}" target="_blank"></a></span>
+	          </div>
+	          <div class="column_left_center">
+	            <ul>
+	            {foreach from=$static_list.educate_list.datas item=news}
+	              <li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+	            {/foreach} 
+	            </ul>
+	          </div>
+	          <div class="column_left_bottom"></div>
+	         {/if}
+	      </div>
+	      
+	      <!-- 学生天地 -->
+	      <div class="column_right">
+	        {if !empty($static_list.student_list)}
+	          <div class="column_right_top">
+	            <h4>{$static_list.student_list.class_info.class}</h4><span><a href="class.php?id={$static_list.student_list.class_info.id}" target="_blank"></a></span>
+	          </div>
+	          <div class="column_left_center">
+	            <ul>
+	            {foreach from=$static_list.student_list.datas item=news}
+	              <li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+	            {/foreach}
+	            </ul>
+	          </div>
+	          <div class="column_left_bottom"></div>
+	         {/if}
+	       </div>
+	       <div class="clear"></div>
+       </div>
+       <!-- column end -->
+      
+      <!-- column -->
+      <div class="column">
+      <!-- 家长联系 -->
+      <div class="column_left">
+        {if !empty($static_list.family_list)}
+          <div class="column_left_top">
+            <h4>{$static_list.family_list.class_info.class}</h4><span><a href="class.php?id={$static_list.family_list.class_info.id}" target="_blank"></a></span>
+          </div>
+          <div class="column_left_center">
+            <ul>
+            {foreach from=$static_list.family_list.datas item=news}
+              <li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+            {/foreach}
+            </ul>
+          </div>
+          <div class="column_left_bottom"></div>
+         {/if}
+       </div>
+      <div class="column_right">
+        {if !empty($static_list.tskz_list)}
+          <div class="column_right_top">
+            <h4>{$static_list.tskz_list.class_info.class}</h4><span><a href="class.php?id={$static_list.tskz_list.class_info.id}" target="_blank"></a></span>
+          </div>
+          <div class="column_left_center">
+            <ul>
+            {foreach from=$static_list.tskz_list.datas item=news}
+              <li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+            {/foreach}
+            </ul>
+          </div>
+          <div class="column_left_bottom"></div>
+         {/if}
+       </div>
+     </div>
+      <!-- 用户后台自定义的板块 -->
+      {if !empty($settings_list)}
+      		{foreach from=$settings_list item=newslist name=mainloop}
+      		 {if $smarty.foreach.mainloop.iteration % 2 !== 0}
+	        <div class="column">
+	        {/if}
+	        <div {if $smarty.foreach.mainloop.iteration % 2 !== 0}class="column_left"{else}class="column_right"{/if}>
+	          <div {if $smarty.foreach.mainloop.iteration % 2 !== 0}class="column_left_top"{else}class="column_right_top"{/if}>
+	            <h4>{$newslist.class_info.class}</h4><span><a href="class.php?id={$newslist.class_info.id}" target="_blank"></a></span>
+	          </div>
+	          <div class="column_left_center">
+	            <ul>
+	            {foreach from=$newslist.datas item=news}
+	              <li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+	            {/foreach}
+	            </ul>
+	          </div>
+	          <div class="column_left_bottom"></div>
+	        </div>
+	        
+	        {if $smarty.foreach.mainloop.iteration % 2 === 0}
+	        	<div class="clear"></div>
+	        </div>
+	        <!-- column end -->
+	        <!-- column -->
+	        {/if}
+	        
+	        {/foreach}
+        {/if}
+    <!--main_right end-->
+   <div class="clear"></div>
+   </div>
+ <!--main end-->
+</div>
+</div>
+<div class="clear"></div>
+{insert name="getFoot"}
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>幼儿园</title>
+<link href="css/Kindergarten_css/style.css" rel="stylesheet" type="text/css" />
+ 
+<script type="text/javascript" language="javascript" src="./admin/js/tupian.js"></script>
+<script type=text/javascript src="js/carousel-chart.js"></script>
+<script type=text/javascript src="js/jquery-1.4.2.min.js"></script> 
+</head>
+
+<body>
+<!--导航-->
+{insert name="getHead"}
+<div class="index_main" style="">
+
+    <!--图片轮换-->
+    <div class="tplh">
+    	 
+    </div>
+    
+    <!--新闻等-->
+    <div class="new_o" >
+    	
+    <!--校园公告-->         
+      <div class="xygg">
+       {if !empty($static_list.notice_list)}  
+        	<ul>
+            {foreach from=$static_list.notice_list.datas item=news}
+              <li><a href="news.php?id={$news.id}" title="{$news.title_all}">{$news.title}</a></li>
+            {/foreach}
+            </ul>
+             <div><a href="class.php?id={$static_list.notice_list.class_info.id}" class="more" > more>></a></div>
+             {/if}
+        </div>
+        
+        <!--校园新闻-->
+        <div class="xyxw">
+        	<ul>
+              {foreach from=$static_list.dy_list.datas item=news}
+              <li><a href="news.php?id={$news.id}" title="{$news.title_all}">{$news.title}</a></li>
+              {/foreach}
+               <div><a href="class.php?id={$static_list.dy_list.class_info.id}" class="more"> more>></a></div>
+          </ul>
+     </div>
+      
+    </div>
+    <div class="clear"></div>
+    <!--left-->
+    <div class="index_left" >
+    
+        <!--左侧小栏目-->
+        <div class="left_div">
+        	<div class="left_title"><span>{$static_list.dq_list.class_info.class}</span> <a href="class.php?id={$static_list.dq_list.class_info.id}" class="more"></a></div>
+             <table cellpadding="0" cellspacing="0">
+              {foreach from=$static_list.dq_list.datas item=news}
+               <tr><td><a href="news.php?id={$news.id}" title="{$news.title_all}">{$news.title}</a></td></tr>
+              {/foreach}
+            </table>
+        </div>
+        <!--左侧小栏目-->
+        <div class="left_div">
+        	<div class="left_title"><span>{$static_list.educate_list.class_info.class}</span> <a href="class.php?id={$static_list.educate_list.class_info.id}" class="more"></a></div>
+             <table cellpadding="0" cellspacing="0">
+              {foreach from=$static_list.educate_list.datas item=news}
+               <tr><td><a href="news.php?id={$news.id}" title="{$news.title_all}">{$news.title}</a></td></tr>
+              {/foreach}
+            </table>
+        </div>
+     </div>
+     
+     <!--右侧-->
+     <div class="index_right">
+        <!--右侧小栏目-->
+        <div class="right_div">
+        	<div class="right_title"><span>{$static_list.student_list.class_info.class}</span> <a href="class.php?id={$static_list.student_list.class_info.id}" class="more"></a></div>
+             <table cellpadding="0" cellspacing="0">
+              {foreach from=$static_list.student_list.datas item=news}
+               <tr><td><a href="news.php?id={$news.id}" title="{$news.title_all}">{$news.title}</a></td></tr>
+              {/foreach}
+            </table>
+        </div>
+        
+        <!--右侧小栏目-->
+        <div class="right_div">
+        	<div class="right_title"><span>{$static_list.family_list.class_info.class}</span> <a href="class.php?id={$static_list.family_list.class_info.id}" class="more"></a></div>
+             <table cellpadding="0" cellspacing="0">
+              {foreach from=$static_list.family_list.datas item=news}
+               <tr><td><a href="news.php?id={$news.id}" title="{$news.title_all}">{$news.title}</a></td></tr>
+              {/foreach}
+            </table>
+        </div>
+     </div>  
+     <div class=" clear"></div> 
+   <!--滚动图片及footer-->  
+     <div class="index_foot">
+     	<div class="gdtp">
+     	
+     	 <!--campus_style校园风采-->
+     
+      <!-- 校园风采，图文列表 -->
+      <div id="picnewslist">
+         {if !empty($pic_news_content)}
+	         {foreach from=$pic_news_content item=val}
+         			<a href="news.php?id={$val.id}" title="{$val.title}" target="_blank"><img src="{$val.pictitle}" width="180" height="120"/></a>
+	         {/foreach}
+         {/if}
+      </div>
+           <script>new Marquee("picnewslist","left",5,715,170,60,0,0,120)</script> 
+      <!--campus_style end-->
+     	</div>
+        <div class="bq"><p>{$footlist.copy}</p></div>
+     </div>
+    </div>
+
+</body>
+</html>

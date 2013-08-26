@@ -1,0 +1,15 @@
+{if !empty($friendlinks)}
+<div class="link">
+  <h4>友情链接</h4>
+  <p>
+    {foreach from=$friendlinks item=link}
+    	<a href="{$link.link}" target="_blank">{$link.name}</a>
+    {/foreach}
+  </p>
+</div>
+<!--link end-->
+{/if}
+<div class="copyright">
+  <p>{$footlist.copy}</p>
+</div>
+<div class="clear"></div>

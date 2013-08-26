@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$detail_rows.title}</title>
+<link rel="stylesheet" href="./css/middle_css/style.css" type="text/css" />
+</head>
+
+<body>
+<div class="big">
+{insert name="getHead"}
+ <!--nav end-->
+ <!--breadcrumb-nav-->
+    <div class="breadcrumb-nav">
+    <ul >
+        <li>当前位置:</li>
+        <li><a href="index.php">首页</a></li>
+        <li>></li>
+        {foreach from=$menulist item=val}
+        <li><a href="class.php?id={$val.id}">{$val.class}</a>&nbsp;>>&nbsp;</li>
+        {/foreach}
+        {$detail_rows.short_title}
+    </ul>
+ </div>
+    <!--breadcrumb-nav-end-->
+ <!--main-->
+   <div class="main">
+   		
+        
+        <!--main_left-->
+        <div class="sub-left">
+        	<h4 class="sub-navtitle">{$upartmenuinfoes.class}</h4>
+            <ul class="sub-nav-list">
+            	{foreach from=$submenuinfo item=val}
+            	<li><a href="class.php?id={$val.id}">{$val.class}</a></li>
+                {/foreach}
+            </ul>
+            <div class="sub-nav-bottom"></div>
+        </div>
+        <!--main_left end-->
+    
+        <!--main_right-->
+    	<div class="sub-right" >
+        	<div class="sub-content" id="list_content">
+            	<div class="sub-c-title">
+                	<h4 style="display:block;width:700px;word-wrap:break-word;word-break:break-all;">{$detail_rows.title}</h4>
+                    <h5><span>作者：{$detail_rows.birth}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>时间：{$detail_rows.date}</span></h5>
+                </div>            	
+                <div class="clear"></div>
+            	<div style="display:block; width:700px; line-height:22px;word-wrap:break-word;word-break:break-all; padding-left:8px;">{$detail_rows.content}</div>
+            </div>
+            <div class="sub-content-bottom"></div>
+        </div>
+        <!--main_right end-->
+        <div class="clear"></div>
+   </div>
+   
+   <!-- 重设图片的大小 -->
+<script type="text/javascript">
+	var imageList = document.getElementById('list_content').getElementsByTagName('img');
+	for(var i=0 ; i < imageList.length ; i++) {
+		var objImage = new Image();
+		objImage.src = imageList[i].src;
+		if(objImage.width > 650) {
+			var scale = (650.0) / (objImage.width);
+			imageList[i].width = 650;
+			imageList[i].height = (objImage.height) * scale;
+		}
+	}
+</script>
+ <!--main end-->
+<div class="clear"></div>
+<!--foot-->
+{insert name="getFoot"}
+
+<!--foot end-->
+</div>
+</body>
+</html>

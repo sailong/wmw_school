@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>list-page</title>
+<link rel="stylesheet" href="css/queue_style.css" type="text/css" />
+</head>
+
+<body>
+<div class="big">
+ <!--top-->
+  {insert name="getHead"}
+ <!--nav end--> 
+
+ <!--BreadcrumbNav-->
+ <div class="breadcrumb-nav">
+ 	<p><a href="index.php">首页</a>&nbsp;>>&nbsp;
+ 	{foreach from=$menulist item=val}
+    	{$val.class}&nbsp;>>&nbsp;
+    {/foreach}
+    </p>
+ </div> 
+ <!--BreadcrumbNav end--> 
+ 
+ <!--left-->
+ <div class="young" style="float:left">
+    <div class="young_top">
+   		<h4>{$menulist.0.class}</h4>
+    </div>
+	<div class="young_center">
+        <ul>
+          {if !empty($class_treelist)}
+	            {foreach from=$class_treelist item=tree}
+	            	<li><a href="class.php?id={$tree.id_all}">{$tree.class}</a></li>
+	            	{if !empty($tree.sub_list)}
+	            		{foreach from=$tree.sub_list item=val}
+	            			<li style="margin-left:20px;"><a href="class.php?id={$val.id_all}">{$val.class}</a></li>
+	            		{/foreach}
+	            	{/if}
+	            {/foreach}
+            {else}
+            	<li>默认分类</li>
+            {/if}
+        </ul>
+	</div>
+	<div class="young_bottom"></div>
+</div>
+ <!--left end-->
+ 
+ <!--right-->
+<div class="main_right list_right" >
+	<div class="list_top">
+    	<h4>{$current_class.class}</h4>
+    </div>
+    <div class="list_content">
+    	<ul>
+			 {foreach from=$news_arr item=news}
+           <li><a href="news.php?id={$news.id}">{$news.title}</a></li>
+             {/foreach}
+        </ul>
+        <div class="clean"></div>
+    </div>
+    <div class="indexin22">
+	<ul>
+	<li>{$page}/{$pages}页</li>
+	<li>共{$nums}条新闻</li>
+	{if $page == 1}
+	<li>首页</li>
+	<li>上一页</li>	
+	{else}
+	<li><a href="?id={$id}&page=1">首页</a></li>
+	<li><a href="?id={$id}&page={$page-1}">上一页</a></li>		
+	{/if}
+	{if $page == $pages || $nums == 0}
+	<li>下一页</li>
+	<li>尾页</li>	
+	{else}
+	<li><a href="?id={$id}&page={$page+1}">下一页</a></li>
+	<li><a href="?id={$id}&page={$pages}">尾页</a></li>		
+	{/if}
+	</ul>
+	</div>
+    <div class="list_bottom"></div>
+</div>
+ <!--right end-->
+ 
+ 
+
+
+ <!--footer-->
+ {insert name="getFoot"}
+ <!--footer end-->
+<div class="clean"></div>
+</div>
+</body>
+</html>

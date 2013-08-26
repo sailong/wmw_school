@@ -1,0 +1,16 @@
+<div class="top">
+  <div class="top_left">
+    <a href="#">设为首页</a><a href="#">加入收藏</a>
+  </div>
+  <!--<div class="top_right"><a href="#">登录</a><a href="#">注册</a><a href="#">帮助</a></div>-->
+</div>
+
+ <div class="banner"></div>
+ <div class="nav">
+   <ul>
+     <li><a href="index.php">首页</a></li>
+    {foreach from=$navlist item=nav}
+	<li><a href="class.php?id={$nav.id}">{$nav.class}</a></li>
+ 	{/foreach}
+   </ul>
+</div>

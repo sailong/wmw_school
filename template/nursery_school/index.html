@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link href="css/nursery_css/css.css" rel="stylesheet" type="text/css" />
+<link href="css/pic_css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript" src="./admin/js/tupian.js"></script>
+<script type=text/javascript src="js/carousel-chart.js"></script>
+<script type=text/javascript src="js/jquery-1.4.2.min.js"></script>
+</head>
+
+<body>
+<div id="Kindergarten">
+	{insert name="getHead"}
+    <!--main-->
+    <div class="main">
+      <!--main_left-->
+      <div class="main_left">
+      
+      	<!-- 最新公告 -->
+      	{if !empty($static_list.notice_list)}
+        <div class="gonggao">
+          <div class="gonggao_top">
+            <h4>{$static_list.notice_list.class_info.class}</h4><a href="class.php?id={$static_list.notice_list.class_info.id}"></a>
+          </div>
+          <div class="gonggao_center">
+            <ul>
+              {foreach from=$static_list.notice_list.datas item=news}
+              <li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+              {/foreach}
+            </ul>
+          </div>
+          <div class="gonggao_bottom"></div>
+        </div>
+        {/if}
+        
+        <!-- 领导班子 -->
+        {if !empty($static_list.leader_list)}
+        <div class="gonggao">
+          <div class="leader_top">
+            <h4>{$static_list.leader_list.class_info.class}</h4>
+          </div>
+          <div class="leader_center">
+          	{foreach from=$static_list.leader_list.datas item=pic_news}
+            <dl>
+              <dt>
+              	<a href="news.php?id={$pic_news.id}" target="_blank" title="{$pic_news.title_all}"><img src="{$pic_news.pictitle}" alt="{$pic_news.title_all}" width="195" height="130" /></a>
+              </dt>
+            </dl>
+            <p style="line-height: 22px; padding-top: 8px; padding-right: 10px; padding-bottom: 0px; padding-left: 10px; word-break: break-all; word-wrap: break-word;"><a href="news.php?id={$pic_news.id}" target="_self">{$pic_news.content}</a></p>
+            {/foreach}
+          </div>
+          <div class="leader_bottom"></div>
+        </div>
+        {/if}
+        
+        <div class="login">
+           <a href="#"></a>
+        </div>
+        
+       <!-- 友情链接 -->
+       {if !empty($friendlinks)}
+       <div class="gonggao" style="margin:0px;">
+          <div class="gonggao_top">
+            <h4>友情链接</h4>
+          </div>
+          <div class="link_center">
+            <ul>
+              {foreach from=$friendlinks item=link}
+              	  <li><a href="{$link.link}" target="_blank" title="{$link.name}">{$link.name}</a></li>
+              {/foreach}
+            </ul>
+          </div>
+          <div class="gonggao_bottom"></div>
+        </div>
+        {/if}
+        
+      </div>
+      <!--main_left end-->
+      <!--main_right-->
+      <div class="main_right">
+        <div class="main_right_first">
+          <!-- 首页幻灯片 -->
+            <div class="ad_img slide" >
+            <div class="ad_img_top"></div>
+            <div class="ad_img_center">
+              <!-- 幻灯片 -->
+				<div style="OVERFLOW: visible;" class="center_class">
+					<div class="cc">
+					  <div id="banner" class="banner">
+						<div id="banner_bg"></div>
+						<ul>
+						  <li class="on">1 </li>
+						  <li>2 </li>
+						  <li>3 </li>
+						  <li>4 </li>
+						  <li>5 </li>
+						  <li>6 </li>
+						</ul>
+						<div id="banner_list" class="banner_list">
+						{if !empty($static_list.hdimg_list)}
+					        {foreach from=$static_list.hdimg_list.datas item=val}
+					           <a href="news.php?id={$val.id}" title="{$val.title_all}"><img src="{$val.pictitle}" width="450" height="282"/></a>
+					        {/foreach}
+	         			{/if}
+					    </div>
+					  </div>
+					</div>
+				</div>
+				<script language="javascript">show('banner');</script>
+            </div>
+            <div class="ad_img_bottom"></div>
+          </div>
+          
+          <!-- 校园新闻 -->
+          <div class="news">
+            <div class="news_top">
+              <h4>校园新闻</h4><a href="#"></a>
+            </div>
+            <div class="news_center">
+              <ul>
+              {foreach from=$zj_news item=news}
+              	<li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+              {/foreach}
+              </ul>
+            </div>
+            <div class="news_bottom"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        
+        <div class="main_right_second">
+        
+          <!-- 德育天地 -->
+          {if !empty($static_list.dy_list)}
+          <div class="moral">
+            <div class="moral_top">
+              <img src="images/nursery_images/xtb1.jpg" />
+              <h4>{$static_list.dy_list.class_info.class}</h4><span><a href="class.php?id={$static_list.dy_list.class_info.id}" target="_blank"></a></span>
+            </div> 
+              <ul>
+              	{foreach from=$static_list.dy_list.datas item=news}
+                	<li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+                {/foreach}
+              </ul>
+          </div>
+          {/if}
+          
+          <!-- 党旗飘飘  -->
+          {if !empty($static_list.dq_list)}
+          <div class="moral">
+            <div class="moral_top">
+              <img src="images/nursery_images/xtb1.jpg" />
+              <h4>{$static_list.dq_list.class_info.class}</h4><span><a href="class.php?id={$static_list.dq_list.class_info.id}" target="_blank"></a></span>
+            </div> 
+            <ul>
+              	{foreach from=$static_list.dq_list.datas item=news}
+                	<li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+                {/foreach}
+             </ul>
+          </div>
+          {/if}
+        </div>
+        
+        <!-- 图文资讯 -->
+        {if !empty($pic_news_content)}
+        <div class="campus_style">
+           <div id="picnewslist">
+	           {foreach from=$pic_news_content item=news}
+	           <dl>
+	             <dt>
+	             	<a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}"><img src="{$news.pictitle}" alt="{$news.title_all}" width="144" height="98" /></a>
+	             </dt>
+	           </dl>
+	           {/foreach}
+           </div>
+           <script>new Marquee("picnewslist","left",5,680,100,60,0,0,120)</script>
+        </div>
+        {/if}
+        
+        <div class="column">
+          <!-- 教研科研 -->
+          {if !empty($static_list.educate_list)}
+          <div class="column_left">
+            <div class="column_left_top">
+               <h4>{$static_list.educate_list.class_info.class}</h4><a href="class.php?id={$static_list.educate_list.class_info.id}" target="_blank"></a>
+            </div>
+            <div class="column_left_center">
+              <ul>
+              	{foreach from=$static_list.educate_list.datas item=news}
+                	<li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+                {/foreach}
+              </ul>
+            </div>
+            <div class="column_left_bottom"></div>
+          </div>
+          {/if}
+          
+          <!-- 学生天地 -->
+          {if !empty($static_list.student_list)}
+          <div class="column_right">
+            <div class="column_right_top">
+               <h4>{$static_list.student_list.class_info.class}</h4><a href="class.php?id={$static_list.student_list.class_info.id}" target="_blank"></a>
+            </div>
+            <div class="column_right_center">
+              <ul>
+              	{foreach from=$static_list.student_list.datas item=news}
+                	<li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+                {/foreach}
+              </ul>
+            </div>
+            <div class="column_right_bottom"></div>
+          </div>
+          {/if}
+          <div class="clear"></div>
+        </div>
+        
+        <div class="column">
+          <!-- 联系家长 -->
+          {if !empty($static_list.family_list)}
+          <div class="column_left">
+            <div class="column_left_top">
+               <h4>{$static_list.family_list.class_info.class}</h4><a href="class.php?id={$static_list.family_list.class_info.id}" target="_blank"></a>
+            </div>
+            <div class="column_left_center">
+              <ul>
+              	{foreach from=$static_list.family_list.datas item=news}
+                	<li><a href="news.php?id={$news.id}" target="_blank" title="{$news.title_all}">{$news.title}</a></li>
+                {/foreach}
+              </ul>
+            </div>
+            <div class="column_left_bottom"></div>
+          </div>
+          {/if}
+          
+          <!-- 用户后台自定义的板块 -->
+          {if !empty($settings_list)}
+          	{foreach from=$settings_list item=newslist name=mainloop}
+           	<div class="{cycle name="div1" values="column_right,column_left"}">
+				<div class="{cycle name="div2" values="column_right_top,column_left_top"}">
+				   <h4>{$newslist.class_info.class}</h4><a href="class.php?id={$newslist.class_info.id}" target="_blank"></a>
+				</div>
+				<div class="{cycle name="div3" values="column_right_center,column_left_center"}">
+				  <ul>
+				  	{foreach from=$newslist.datas item=news}
+				    	<li><a href="news.php?id={$news.id}" target="_blank" target="title_all">{$news.title}</a></li>
+				    {/foreach}
+				  </ul>
+				</div>
+				<div class="{cycle name="div4" values="column_right_bottom,column_left_bottom"}"></div>
+          	</div>
+          	<!-- 显示的样式和格式的控制 -->
+          	{if $smarty.foreach.mainloop.iteration % 2 !== 0}
+          		<div class="clear"></div>
+          	</div>
+          	<div class="column">
+          	{/if}
+          	{/foreach}
+          {/if}
+          <div class="clear"></div>
+        </div>
+        
+      </div>
+      <!--main_right end-->
+    <div class="clear"></div>
+    </div>
+    <!--main end-->
+</div>
+<!--foot-->
+{insert name="getFoot"}
+<!--foot end-->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$detail_rows.title}</title>
+<link rel="stylesheet" href="css/queue_style.css" type="text/css" />
+
+</head>
+<body>
+<div class="big">
+ <!--top-->
+ {insert name="getHead"}
+ <!--nav end--> 
+
+ <!--BreadcrumbNav-->
+ <div class="breadcrumb-nav">
+ 	<a href="index.php">首页</a>&nbsp;>>&nbsp;
+    {foreach from=$menulist item=val}
+    	{$val.class}&nbsp;>>&nbsp;
+    {/foreach}
+    {$detail_rows.short_title}
+    
+ </div> 
+ <!--BreadcrumbNav end--> 
+ 
+ <!--left-->
+ <div class="young" style="float:left">
+    <div class="young_top">
+   		<h4>{$upartmenuinfoes.class}</h4>
+    </div>
+	<div class="young_center">
+        <ul>
+         {foreach from=$submenuinfo item=val}
+           <li><a href="class.php?id={$val.id}">{$val.class}</a></li>
+         {/foreach}
+        </ul>
+	</div>
+	<div class="young_bottom"></div>
+</div>
+ <!--left end-->
+ 
+ <!--right-->
+<div class="main_right list_right" >
+	<div class="list_top">
+    	<h4  style="display:block;width:670px;word-wrap:break-word;word-break:break-all;">{$detail_rows.title}</h4>
+    </div>
+    <div class="list_content" id="list_content">
+    	<dl>
+              <dt style="display:block; width:670px; line-height:22px; padding-left:10px;word-wrap:break-word;word-break:break-all;">{$detail_rows.content}</dt>
+        </dl>
+    	
+    <p class="list_content_autor">编辑：{$detail_rows.birth}<span>发布时间：{$detail_rows.date}</span></p>
+    </div>
+    <div class="list_bottom"></div>
+</div>
+ <!--right end-->
+<!-- 重设图片的大小 -->
+<script type="text/javascript">
+	var imageList = document.getElementById('list_content').getElementsByTagName('img');
+	for(var i=0 ; i < imageList.length ; i++) {
+		var objImage = new Image();
+		objImage.src = imageList[i].src;
+		if(objImage.width > 650) {
+			var scale = (650.0) / (objImage.width);
+			imageList[i].width = 650;
+			imageList[i].height = (objImage.height) * scale;
+		}
+	}
+</script>
+
+<div class="clean"></div>
+ <!--footer-->
+ {insert name="getFoot"}
+ <!--footer end-->
+</div>
+</body>
+</html>

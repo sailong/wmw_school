@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>学校网站_列表页图片</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+<div class="big">
+  {insert name="getHead"}
+   <div class="subnav">
+     <p><a href="index.php">首页</a>&nbsp;>>&nbsp;
+    {foreach from=$menulist item=val}
+    	{$val.class}&nbsp;>>&nbsp;
+    {/foreach}
+   </div>
+  <!--subnav end-->
+  <!--list_page_main-->
+   <div class="list_page_main">
+      <div class="listpage_main_left">
+        <div class="sidebar_top">
+         <h4>{$menulist.0.class}</h4>
+         <div class="sidebar_center ">
+         <ul>
+         {if !empty($class_treelist)}
+	            {foreach from=$class_treelist item=tree}
+	            	<li><a href="class.php?id={$tree.id_all}">{$tree.class}</a></li>
+	            	{if !empty($tree.sub_list)}
+	            		{foreach from=$tree.sub_list item=val}
+	            			<li style="margin-left:20px;"><a href="class.php?id={$val.id_all}">{$val.class}</a></li>
+	            		{/foreach}
+	            	{/if}
+	            {/foreach}
+            {else}
+            	<li>默认分类</li>
+            {/if}
+            <!--
+              <li><a href="#">学校概况</a></li>
+              <li><a href="#">进得看看</a></li>
+              <li><a href="#">进得看看</a></li>
+              <li><a href="#">进得可开</a></li>
+              <li><a href="#">进可开发</a></li>
+              <li><a href="#">进得看发</a></li>
+              <li><a href="#">发可开发</a></li>
+               -->
+            </ul>
+         </div>
+         <div class="sidebar_bottom"></div>
+       </div>
+      </div>
+      <div class="listpage_main_right">
+        <h4>{$current_class.class}</h4>
+        <div class="listpage_main_right_tu">
+          {foreach from=$news_arr item=news}
+            <dl>
+              <dt><a href="news.php?id={$news.id}"><img src="{$news.pictitle}" /></a></dt>
+              <dd>{$news.title}</dd>
+            </dl>
+          {/foreach}
+            <div class="clear"></div>
+        </div>
+        
+        <div class="listpage_main_bottom"></div>
+      </div>
+    <div class="clear"></div>  
+   </div>
+  <!--list_page_main end-->
+  
+  <!--link
+    <div class="link">
+      <h4>友情链接</h4>
+      <p>
+        <a href="#">看到看到可</a><a href="#">看到看到可</a><a href="#">看到看到可</a><a href="#">看到看到可</a><a href="#">看到看到可</a><a href="#">看到看到可</a>
+      </p>
+    </div>
+  link end--> 
+  <!--<div class="copyright">
+    <p>学校网站&nbsp;&nbsp;版权所有</p>
+  </div>
+ <div class="clear"></div> --> 
+ {insert name="getFoot"}
+</div>
+</body>
+</html>
